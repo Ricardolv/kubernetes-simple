@@ -1,4 +1,4 @@
-# Kubernetes
+# Kubernetes basic 1
 
 
 minikube start --vm-driver=virtualbox			-> comando minikube usando virtualbox
@@ -23,3 +23,21 @@ kubectl delete svc --all						-> deletar todos os servicos
 kubectl delete configmap --all					-> deletar todos os configmap
 
 kubectl get configmap							-> visulizar todos os configmaps criados 
+
+
+# Kubernetes basic  2
+
+
+ReplicaSets: 
+
+
+
+
+Comandos: 
+kubectl get rs 									-> visualizar os replicaset criado
+kubectl get pods --watch						-> usando a plag --watch acompanha em tempo real
+
+
+Deployments:
+
+Comandos: 
