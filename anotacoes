@@ -30,7 +30,7 @@ kubectl get configmap							-> visulizar todos os configmaps criados
 
 ReplicaSets: 
 
-
+Que ReplicaSets são criados automaticamente dentro de um Deployment
 
 Comandos: 
 kubectl get rs 									-> visualizar os replicaset criado
@@ -39,7 +39,8 @@ kubectl get pods --watch						-> usando a plag --watch acompanha em tempo real
 
 Deployments:
 
-Um deployment e uma camada acima do replicaset
+Um deployment e uma camada acima do replicaset.
+Que Pods normalmente são criados através de Deployments, e não individualmente.
 
 
 Comandos: 
@@ -67,3 +68,17 @@ kubectl annotate deployment db-noticias-deployment kubernetes.io/change-cause="C
 kubectl rollout history deployment db-noticias-deployment
 
 
+Persistir dados com Volumes:
+
+Comandos: 
+
+
+criar pasta no minikube:
+	minikube ssh
+	cd /home/
+	sudo mkdir primeiro-volume
+	logout
+kubectl apply -f exemplo/pod-volume.yml
+kubectl get pods
+
+kubectl exec -it pod-volume --container nginx-container -- bash
