@@ -82,9 +82,9 @@ Persistir dados com Volumes:
 
 	Existem diversos tipos de plugins de volumes que podem ser utilizados pelos Cloud Providers, cada um com seu respectivo modo de acesso e nomes. Por exemplo, o GCEPersistentDisk que usamos nos vídeos anteriores, permite apenas a criação de um PersistentVolume em modo de ReadWriteOnce ou ReadOnlyMany. Diversas outras informações sobre plugins de volumes.
 
+	
 
 Comandos: 
-
 
 criar pasta no minikube:
 	minikube ssh
@@ -112,3 +112,33 @@ kubectl apply -f exemplo/pod-pv.yml
 kubectl get pods
 kubectl exec -it pod-pv  -- bash
 	ls volume-dentro-do-container/
+
+
+
+Utilizando Storage Classes:
+
+	Persistente Volume: Resource inmdependete do Pod responsavel por abstrair como o cloud provideer armazena os dados.
+	Persistente Volume Claims: Serve como passaporte para o Pod acesar o PV
+	Pod: Acessa o PV (Persistente Volume) atraves do PVC (Persistente Volume Claims)
+
+
+Comandos: 
+
+kubectl apply -f exemplo/sc.yml
+kubectl get sc
+kubectl apply -f exemplo/pvc-sc.yml
+kubectl get pvc
+kubectl get pv
+kubectl apply -f exemplo/pod-sc.yml
+kubectl get pod
+kubectl exec -it pod-sc  -- bash
+	cd volume-dentro-do-container/
+	touch arquivo-persistente
+	exit
+kubectl delete pod pod-sc
+kubectl get pods
+kubectl apply -f exemplo/pod-sc.yml
+kubectl get pods
+kubectl exec -it pod-sc -- bash
+	ls volume-dentro-do-container/
+
