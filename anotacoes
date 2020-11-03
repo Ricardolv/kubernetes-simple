@@ -1,4 +1,4 @@
-# Kubernetes basic 1
+# Kubernetes simple 1
 
 
 minikube start --vm-driver=virtualbox			-> comando minikube usando virtualbox
@@ -25,11 +25,10 @@ kubectl delete configmap --all					-> deletar todos os configmap
 kubectl get configmap							-> visulizar todos os configmaps criados 
 
 
-# Kubernetes basic  2
+# Kubernetes simple  2
 
 
 ReplicaSets: 
-
 
 
 
@@ -40,4 +39,31 @@ kubectl get pods --watch						-> usando a plag --watch acompanha em tempo real
 
 Deployments:
 
+Um deployment e uma camada acima do replicaset
+
+
 Comandos: 
+kubectl get deployments 																									-> visualizar os deployments criado
+kubectl get deployments --watch																								-> usando a plag --watch acompanha em tempo real
+kubectl rollout history deployment nginx-deployment																			-> historico referente as versoes dos deployment informando
+kubectl apply -f portal-noticias/nginx-deployment.yml --record																-> 
+kubectl annotate deployment nginx-deployment kubernetes.io/change-cause="Definido a imagem com a versao latest"				-> 
+kubectl rollout undo deployment nginx-deployment --to-revision=2															-> rolled back refrente a versao 2 
+kubectl delete deployment nginx-deployment																					-> deletar deployment
+kubectl delete -f portal-noticias/portal-noticias-replicaset.yml															-> deletar replicaset via arquivo
+
+kubectl apply -f portal-noticias/portal-noticias-deployment.yml
+kubectl annotate deployment portal-noticias-deployment kubernetes.io/change-cause="Criando portal de noticias na versao 1"
+kubectl rollout history deployment portal-noticias-deployment
+
+kubectl delete pod sistema-noticias
+kubectl apply -f portal-noticias/sistema-noticias-deployment.yml
+kubectl get pods
+kubectl delete pod db-noticias
+kubectl apply -f portal-noticias/db-noticias-deployment.yml
+kubectl annotate deployment sistema-noticias-deployment kubernetes.io/change-cause="Criando portal de noticias na versao 1"
+kubectl rollout history deployment sistema-noticias-deployment
+kubectl annotate deployment db-noticias-deployment kubernetes.io/change-cause="Criando portal de noticias na versao 1"
+kubectl rollout history deployment db-noticias-deployment
+
+
