@@ -1,0 +1,25 @@
+# Kubernetes
+
+
+minikube start --vm-driver=virtualbox			-> comando minikube usando virtualbox
+kubectl get nodes								-> informando os nos do minikes
+kubectl get pods								-> visualizar os pods
+kubectl run nginx-pod --image=nginx:latest		-> criando imagem nginx
+kubectl get pods --watch						-> usando a plag --watch acompanha em tempo real
+kubectl describe pod nginx-pod					-> exibe disversas informcoes do pod
+kubectl edit pod nginx-pod						-> editar pod 
+kubectl apply -f primeiro-pod.yml				-> comando para aplicar kubernete declarativo
+kubectl delete pod nginx-pod					-> deletar pode criado de forma imperativo 
+kubectl delete -f primeiro-pod.yml				-> deletar pode criado de forma declarativa 
+kubectl exec -it portal-noticias -- bash		-> acessar de forma interativa 
+
+kubectl get pods -o wide						-> cerificar ip dos pods
+kubectl get svc ou/ service						-> visulizar os servicos criados
+	
+kubectl get nodes -o wide						-> cerificar ip dos nos
+
+kubectl delete pods --all						-> deletar todos os pods
+kubectl delete svc --all						-> deletar todos os servicos
+kubectl delete configmap --all					-> deletar todos os configmap
+
+kubectl get configmap							-> visulizar todos os configmaps criados 
