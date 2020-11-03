@@ -1,1 +1,1 @@
-# kubernetes-basic1
+# kubernetes-simple
