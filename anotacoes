@@ -155,8 +155,21 @@ Comandos:
 kubectl get deployments
 kubectl delete deployments sistema-noticias-deployment
 kubectl apply -f portal-noticias/sistema-noticias-statefulset.yml
+kubectl get statefulset
 kubectl get pods
 
 kubectl delete pod sistema-noticias-statefulset-0
 kubectl get pods
 
+kubectl apply -f portal-noticias/imagens-pvc.yml
+kubectl apply -f portal-noticias/sessao-pvc.yml
+kubectl get pvc
+kubectl get pv
+kubectl get sc
+
+kubectl delete -f portal-noticias/sistema-noticias-statefulset.yml
+kubectl apply -f portal-noticias/sistema-noticias-statefulset.yml
+kubectl get statefulset
+kubectl get pods
+
+kubectl describe sts sistema-noticias-statefulset
