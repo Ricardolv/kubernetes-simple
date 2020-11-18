@@ -173,3 +173,31 @@ kubectl get statefulset
 kubectl get pods
 
 kubectl describe sts sistema-noticias-statefulset
+
+
+Conhecendo probes:
+
+O Kubernetes nem sempre tem como saber se a aplicação está saudável
+Podemos criar critérios para definir se a aplicação está saudável através de probes
+Como criar Liveness probes com o campo livenessProbe
+LivenessProbes podem fazer a verificação em diferentes intervalos de tempo via HTTP
+Como criar Liveness probes com o campo ReadinessProbe
+ReadinessProbes podem fazer a verificação em diferentes intervalos de tempo via HTTP
+LivenessProbes são para saber se a aplicação está saudável e/ou se deve ser reiniciada, enquanto ReadinessProbes são para saber se a aplicação já está pronta para receber requisições depois de iniciar
+Além do HTTP, também podemos fazer verificações via TCP
+
+Escalando pods:
+
+
+
+Comandos: 
+
+kubectl apply -f portal-noticias/portal-noticias-deployment.yml
+kubectl apply -f portal-noticias/sistema-noticias-statefulset.yml
+kubectl get hpa
+
+minikube addons list
+minikube addons enable metrics-server
+
+
+
